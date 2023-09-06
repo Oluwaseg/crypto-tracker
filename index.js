@@ -44,3 +44,15 @@ async function fetchCryptoData() {
 fetchCryptoData();
 // Refresh data every 5 minutes (300000 milliseconds)
 setInterval(fetchCryptoData, 300000);
+
+// Get the dark mode checkbox element
+const darkModeCheckbox = document.getElementById("dark-mode-checkbox");
+
+// Apply dark mode if the checkbox is checked
+darkModeCheckbox.addEventListener("change", () => {
+  if (darkModeCheckbox.checked) {
+    document.body.classList.add("dark-mode");
+  } else {
+    document.body.classList.remove("dark-mode");
+  }
+});

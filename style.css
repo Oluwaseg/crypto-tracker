@@ -1,19 +1,24 @@
-/* Reset some default styles */
+:root {
+  --background-color: #ffdee9;
+  --colour: linear-gradient(90deg, #ffdee9 0%, #b5fffc 100%);
+  --scroll-color: #08aeea;
+  --scroll-hover: #74ebd5;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Set fonts */
-body {
+.over-all {
   font-family: "Montserrat", sans-serif;
   text-align: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the content horizontally */
-  justify-content: center; /* Center the content vertically */
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
@@ -22,60 +27,151 @@ h1 {
   margin: 10px 0;
 }
 
-.section {
-  /* Set the height of the section where you want to contain the scrollable content */
-  height: auto;
-  max-height: 600px; /* You can adjust the max height as needed */
-  overflow: hidden; /* Hide content that overflows the section */
-  position: relative; /* Create a positioning context for the container */
+/* Styles for the Dark Mode Toggle Button */
+.dark-mode-toggle {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 18px;
+}
 
-  /* Add styles to customize the appearance of the section */
-  background: linear-gradient(
-    273deg,
-    rgba(189, 189, 189, 1) 0%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  border: 3px solid #464646;
+/* Styles for the Switch Input */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Dark mode label */
+.dark-mode-label {
+  margin-left: 10px;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  --background-color: #292929;
+  --colour: linear-gradient(90deg, #292929 0%, #000000 100%);
+  --scroll-color: #08aeea;
+  --scroll-hover: #74ebd5;
+  color: white;
+}
+
+/* Update styles for dark mode */
+.dark-mode .section {
+  background: linear-gradient(0deg, #292929 0%, #000000 100%);
+}
+
+/* Update styles for dark mode */
+.dark-mode .container {
+  background-color: #292929;
+  background-image: linear-gradient(238deg, #292929 0%, #000000 100%);
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 10);
+}
+
+.dark-mode .coin {
+  box-shadow: 0 22px 24px rgba(0, 0, 0, 0.308);
+}
+
+.dark-mode .delete-button {
+  color: #fff;
+}
+.dark-mode .delete-button:hover {
+  color: black;
+  background: #fff;
+}
+/* Update scrollbar styles for dark mode */
+.dark-mode .container::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-color);
+}
+
+.dark-mode .container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-hover);
+}
+
+/* Your existing styles */
+.section {
+  height: auto;
+  max-height: 600px;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--background-color);
+  background-image: var(--colour);
+  border: 10px solid var(--colour);
   padding: 20px;
   border-radius: 10px;
-  width: 50%; /* Centered content width */
-  margin: 0 auto; /* Center the section horizontally */
+  width: 50%;
+  margin: 10px auto;
 }
 
 .container {
-  /* Set the fixed height of the container to allow scrolling */
-  height: 300px; /* You can adjust the height to your preference */
-  overflow-y: scroll; /* Enable vertical scrolling if content exceeds the container height */
-  padding: 10px; /* Add padding to create spacing between content and the container edge */
-  box-sizing: border-box; /* Include padding in the container's total height */
-
-  /* Add additional styles to customize the appearance of the container */
-  background: radial-gradient(
-    circle,
-    rgba(189, 189, 189, 1) 0%,
-    rgba(82, 82, 82, 1) 100%
-  );
+  height: 300px;
+  overflow-y: scroll;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: var(--background-color);
+  background-image: var(--colour);
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Customize scrollbar */
 .container::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
+  width: 8px;
 }
 
 .container::-webkit-scrollbar-thumb {
-  background-color: #888; /* Color of the scrollbar thumb */
-  border-radius: 4px; /* Rounded corners for the thumb */
+  background-color: var(--scroll-color);
+  border-radius: 4px;
 }
 
 .container::-webkit-scrollbar-thumb:hover {
-  background-color: #555; /* Color of the thumb on hover */
-}
-
-.container::-webkit-scrollbar-track {
-  background-color: #f1f1f1; /* Color of the scrollbar track */
-  border-radius: 4px; /* Rounded corners for the track */
+  background-color: var(--scroll-hover);
 }
 
 .coin {
@@ -84,14 +180,9 @@ h1 {
   align-items: center;
   margin-bottom: 10px;
   padding: 10px;
-  /* background: linear-gradient(
-    273deg,
-    rgba(220, 220, 220, 1) 0%,
-    rgba(152, 152, 152, 1) 100%
-  ); */
-  background: #fff;
+  background: transparent;
   border-radius: 5px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 22px 24px rgba(0, 0, 0, 0.1);
 }
 
 .coin-info {
@@ -112,25 +203,37 @@ h1 {
 }
 
 .delete-button {
-  background: radial-gradient(
-    circle,
-    rgba(101, 101, 101, 1) 0%,
-    rgba(70, 70, 70, 1) 100%
-  );
+  background: var(--colour);
   color: #292929;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  padding: 1em;
-  font-size: 20px;
+  padding: 0.8em;
+  font-size: 17px;
   font-weight: bold;
+  transition: all 0.5s ease-in-out;
 }
 
 .delete-button:hover {
-  background: radial-gradient(
-    circle,
-    rgba(220, 220, 220, 1) 0%,
-    rgba(152, 152, 152, 1) 100%
-  );
+  background-image: linear-gradient(15deg, #08aeea 0%, #2af598 100%);
   color: #292929;
+  transition: background 0.5s ease-in-out, padding 0.3s ease-in-out;
+  padding: 1.2em;
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
 }
