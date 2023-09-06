@@ -1,0 +1,136 @@
+/* Reset some default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set fonts */
+body {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content horizontally */
+  justify-content: center; /* Center the content vertically */
+}
+
+h1 {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.section {
+  /* Set the height of the section where you want to contain the scrollable content */
+  height: auto;
+  max-height: 600px; /* You can adjust the max height as needed */
+  overflow: hidden; /* Hide content that overflows the section */
+  position: relative; /* Create a positioning context for the container */
+
+  /* Add styles to customize the appearance of the section */
+  background: linear-gradient(
+    273deg,
+    rgba(189, 189, 189, 1) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border: 3px solid #464646;
+  padding: 20px;
+  border-radius: 10px;
+  width: 50%; /* Centered content width */
+  margin: 0 auto; /* Center the section horizontally */
+}
+
+.container {
+  /* Set the fixed height of the container to allow scrolling */
+  height: 300px; /* You can adjust the height to your preference */
+  overflow-y: scroll; /* Enable vertical scrolling if content exceeds the container height */
+  padding: 10px; /* Add padding to create spacing between content and the container edge */
+  box-sizing: border-box; /* Include padding in the container's total height */
+
+  /* Add additional styles to customize the appearance of the container */
+  background: radial-gradient(
+    circle,
+    rgba(189, 189, 189, 1) 0%,
+    rgba(82, 82, 82, 1) 100%
+  );
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Customize scrollbar */
+.container::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color of the scrollbar thumb */
+  border-radius: 4px; /* Rounded corners for the thumb */
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color of the thumb on hover */
+}
+
+.container::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Color of the scrollbar track */
+  border-radius: 4px; /* Rounded corners for the track */
+}
+
+.coin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  /* background: linear-gradient(
+    273deg,
+    rgba(220, 220, 220, 1) 0%,
+    rgba(152, 152, 152, 1) 100%
+  ); */
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.coin-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.coin-name,
+.coin-price {
+  margin: 0 5px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.coin-price {
+  font-family: monospace;
+}
+
+.delete-button {
+  background: radial-gradient(
+    circle,
+    rgba(101, 101, 101, 1) 0%,
+    rgba(70, 70, 70, 1) 100%
+  );
+  color: #292929;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 1em;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.delete-button:hover {
+  background: radial-gradient(
+    circle,
+    rgba(220, 220, 220, 1) 0%,
+    rgba(152, 152, 152, 1) 100%
+  );
+  color: #292929;
+}
